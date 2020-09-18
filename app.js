@@ -3,13 +3,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import { userRouter } from "./router";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
+import globalRouter from "./routers/globalRouter";
 
 const app = express();
-
-const handleHome = (req, res) => res.send("Welcome to home");
-
-const handleProfile = (req, res) => res.send("This is profile");
 
 app.use(cookieParser()); // record user info
 app.use(bodyParser.json());
@@ -21,11 +19,9 @@ app.use(
 app.use(helmet()); // for security
 app.use(morgan("dev")); // record log
 
-app.get("/", handleHome);
-
-app.get("/profile", handleProfile);
-
+app.use("/", globalRouter);
 app.use("/user", userRouter);
+app.use("/video", videoRouter);
 
 export default app;
 // When some file imports this file, it return app object as default.
