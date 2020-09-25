@@ -2,8 +2,7 @@ import express from "express";
 import {
 	changePassword,
 	editProfile,
-	userDetail,
-	users
+	userDetail
 } from "../controllers/userControllers";
 import routes from "../routes";
 
