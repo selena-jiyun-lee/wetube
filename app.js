@@ -7,9 +7,7 @@ import morgan from "morgan";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import routes from "./routes";
-import {
-	localsMiddleWare
-} from "./middleWares";
+import { localsMiddleWare } from "./middleWares";
 
 const app = express();
 
