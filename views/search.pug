@@ -8,6 +8,7 @@ block content
     .video
         each video in videos
             +videoBlock({
+                id: video.id,
                 title: video.title,
                 views: video.views,
                 description: video.description,
