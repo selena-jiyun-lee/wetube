@@ -6,11 +6,14 @@ block content
         h3 Searching for #{searchingBy}
 
     .video
-        each video in videos
-            +videoBlock({
-                id: video.id,
-                title: video.title,
-                views: video.views,
-                description: video.description,
-                videoFile: video.videoFile
-            })
+        if videos.length === 0
+            p #{searchingBy} is not found.
+        else
+            each video in videos
+                +videoBlock({
+                    id: video.id,
+                    title: video.title,
+                    views: video.views,
+                    description: video.description,
+                    videoFile: video.videoFile
+                })
