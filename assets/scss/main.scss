@@ -1,0 +1,51 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background-color: $grey;
+	color: $black;
+	font-family: "Noto Sans KR", sans-serif;
+	font-size: 14px;
+}
+
+main {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	min-height: 70vh;
+}
+
+textarea,
+button,
+input:not([type="file"]) {
+	padding: 7px 10px;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 14px;
+	color: $black;
+	font-weight: 600;
+	border: none;
+	background-color: white;
+	max-width: 320px;
+	resize: none;
+	&::placeholder {
+		font-weight: 300;
+		color: rgba(0, 0, 0, 0.7);
+	}
+}
+
+label {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+button,
+input[type="submit"] {
+	cursor: pointer;
+}
+
+button.delete {
+	width: 100%;
+}
