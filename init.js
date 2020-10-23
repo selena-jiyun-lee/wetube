@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import "./db";
 import "./models/Video";
 import "./models/Comment";
+import "./models/User";
 
 dotenv.config();
 

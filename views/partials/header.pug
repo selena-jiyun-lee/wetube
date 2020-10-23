@@ -10,7 +10,7 @@ header.header
                 i.fas.fa-search
     .header__column
         ul
-            if user.isAuthenticated
+            if user !== null
                 li
                     a(href=`/videos${routes.upload}`) 
                         i.fas.fa-video

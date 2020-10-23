@@ -1,5 +1,9 @@
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import passport from "passport";
+import session from "express-session";
+import mongoStore from "connect-mongo";
+import mongoose from "mongoose";
 import express from "express";
 import globalRouter from "./routers/globalRouter";
 import helmet from "helmet";
@@ -8,8 +12,14 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import routes from "./routes";
 import { localsMiddleWare } from "./middleWares";
+import "./passport";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
+
+const cookieStore = mongoStore(session);
 
 app.use(helmet()); // for security
 app.set("view engine", "pug");
@@ -23,6 +33,15 @@ app.use(
 	})
 );
 app.use(morgan("dev")); // record log
+app.use(session({
+	secret: process.env.COOKIE_SECRET,
+	resave: true,
+	saveUninitialized: false,
+	store: new cookieStore({mongooseConnection: mongoose.connection})
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(localsMiddleWare);
 
