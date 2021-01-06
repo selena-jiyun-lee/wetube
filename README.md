@@ -1,4 +1,19 @@
 # WeTube
+- This is clone of Youtube for learning NodeJS and VanillaJS.
+- Followed by [Nomard Coders](https://nomadcoders.co/) lecture.
+
+# Used Skills
+- NodeJS
+- ES6
+- ExpresssJS
+- Babel
+- Pug
+- PassportJS
+- Webpack
+- SCSS
+- Mongoose
+- MongoDB
+- Multer
 
 ## Pages:
 
